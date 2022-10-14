@@ -16,12 +16,32 @@ class CommonAppBar extends StatelessWidget {
           child: Image.asset('assets/youtube_logo.jpg'),
         ),
         backgroundColor: Colors.black,
-      ),
-      
-      body: const Center(
-          // ここを追加
-          // child: Image.asset('assets/youtube_logo.jpg'),
+        //actionsにアイコンを並べていく
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.cast),
+            onPressed: () => {},
           ),
+          IconButton(
+            icon: const Icon(Icons.notifications_outlined),
+            onPressed: () => {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () => {},
+          ),
+          IconButton(
+            icon: Container(
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      fit: BoxFit.fill, image: AssetImage("assets/icon.jpeg"))),
+            ),
+            onPressed: () => {},
+          )
+        ],
+      ),
+      body: const Center(),
     );
   }
 }
