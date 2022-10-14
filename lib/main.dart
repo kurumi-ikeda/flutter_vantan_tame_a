@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'component/app_bar.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,17 +15,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const CommonAppBar(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
 
   final String title;
 
