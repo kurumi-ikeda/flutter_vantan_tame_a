@@ -43,29 +43,69 @@ class _FavoriteTagState extends State<FavoriteTag> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 50,
+      height: 60,
       color: Colors.black,
-      child: ListView.builder(
-        //横並びにする
-        scrollDirection: Axis.horizontal,
-        itemCount: tags.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            padding: const EdgeInsets.all(5),
-            child: ChoiceChip(
-              label: Text(tags[index]),
-              selected: _choiceIndex == index,
-              backgroundColor: Colors.grey[600],
-              selectedColor: Colors.white,
-              onSelected: (_) {
-                setState(() {
-                  _choiceIndex = index;
-                });
-              },
+      child: Container(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: Row(
+          children: [
+            const SearchButton(),
+            const SizedBox(
+              height: 20,
+              child: VerticalDivider(
+                color: Colors.white,
+                // width: 30
+              ),
             ),
-          );
-        },
+            Expanded(
+              child: ListView.builder(
+                //横並びにする
+                scrollDirection: Axis.horizontal,
+                itemCount: tags.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    padding: const EdgeInsets.all(5),
+                    child: ChoiceChip(
+                      label: Text(
+                        tags[index],
+                        style: TextStyle(
+                          color: (index == _choiceIndex)
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      ),
+                      selected: _choiceIndex == index,
+                      backgroundColor: Colors.grey[600],
+                      selectedColor: Colors.white,
+                      onSelected: (_) {
+                        setState(() {
+                          _choiceIndex = index;
+                        });
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class SearchButton extends StatelessWidget {
+  const SearchButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        primary: Colors.grey[600],
+      ),
+      icon: const Icon(Icons.explore),
+      label: const Text('探索'),
     );
   }
 }
