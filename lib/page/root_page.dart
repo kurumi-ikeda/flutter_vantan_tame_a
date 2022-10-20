@@ -25,35 +25,59 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.white,
         backgroundColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(
+        items: [
+          const BottomNavigationBarItem(
             backgroundColor: Colors.white,
             icon: Icon(
-              Icons.insert_photo,
+              Icons.home,
               color: Colors.white,
             ),
             label: 'sss',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.white,
+            icon: SizedBox(
+              width: 24,
+              height: 22,
+              child: Image.asset(
+                'assets/youtube-shorts-logo.png',
+                fit: BoxFit.fitHeight,
+                color: Colors.white,
+
+                // colorBlendMode: BlendMode.lighten,
+              ),
+            ),
+            // icon: Icon(
+            //   Icons.explore,
+            //   color: Colors.white,
+            // ),
+            label: 'sss',
+          ),
+          const BottomNavigationBarItem(
+            backgroundColor: Colors.white,
             icon: Icon(
-              Icons.photo_library,
+              Icons.add_circle,
+              color: Colors.white,
             ),
             label: 'sss',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.abc_rounded),
-            label: "aaa",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.abc_rounded),
-            label: "aaa",
-          ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
+            backgroundColor: Colors.white,
             icon: Icon(
-              Icons.abc_rounded,
+              Icons.subscriptions,
+              color: Colors.white,
             ),
-            label: "aaa",
+            label: 'sss',
+          ),
+          const BottomNavigationBarItem(
+            backgroundColor: Colors.white,
+            icon: Icon(
+              Icons.video_library,
+              color: Colors.white,
+            ),
+            label: 'sss',
           ),
         ],
         onTap: (int index) {
