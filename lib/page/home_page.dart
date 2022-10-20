@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vantan_tame_a/component/app_bar.dart';
+
+import '../component/common_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

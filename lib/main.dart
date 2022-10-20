@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vantan_tame_a/page/home_page.dart';
+import 'package:flutter_vantan_tame_a/page/root_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const SafeArea(
+        child: Scaffold(
+          body: RootPage(),
+        ),
+      ),
     );
   }
 }
