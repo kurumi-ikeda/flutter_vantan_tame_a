@@ -94,6 +94,11 @@ class _RootPageState extends State<RootPage> {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add_circle_outline),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: _navWidget.elementAt(_navIndex),
     );
   }
