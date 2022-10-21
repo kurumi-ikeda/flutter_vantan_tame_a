@@ -25,8 +25,19 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        //選択されている時のフォントサイズを変更
+        selectedFontSize: 10,
+        //選択されていない時のフォントサイズを変更
+        unselectedFontSize: 10,
+        // 選択されている時のカラーを変更
+        selectedItemColor: Colors.white,
+        //選択されていない時のカラーを変更
         unselectedItemColor: Colors.white,
+        //背景のカラーを変更
         backgroundColor: Colors.black,
+        currentIndex: _navIndex,
+        type: BottomNavigationBarType.fixed,
+
         items: [
           const BottomNavigationBarItem(
             backgroundColor: Colors.white,
@@ -34,7 +45,7 @@ class _RootPageState extends State<RootPage> {
               Icons.home,
               color: Colors.white,
             ),
-            label: 'sss',
+            label: 'ホーム',
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
@@ -45,15 +56,10 @@ class _RootPageState extends State<RootPage> {
                 'assets/youtube-shorts-logo.png',
                 fit: BoxFit.fitHeight,
                 color: Colors.white,
-
                 // colorBlendMode: BlendMode.lighten,
               ),
             ),
-            // icon: Icon(
-            //   Icons.explore,
-            //   color: Colors.white,
-            // ),
-            label: 'sss',
+            label: 'ショート',
           ),
           const BottomNavigationBarItem(
             backgroundColor: Colors.white,
@@ -61,7 +67,7 @@ class _RootPageState extends State<RootPage> {
               Icons.add_circle,
               color: Colors.white,
             ),
-            label: 'sss',
+            label: '',
           ),
           const BottomNavigationBarItem(
             backgroundColor: Colors.white,
@@ -69,7 +75,7 @@ class _RootPageState extends State<RootPage> {
               Icons.subscriptions,
               color: Colors.white,
             ),
-            label: 'sss',
+            label: '登録チャンネル',
           ),
           const BottomNavigationBarItem(
             backgroundColor: Colors.white,
@@ -77,7 +83,7 @@ class _RootPageState extends State<RootPage> {
               Icons.video_library,
               color: Colors.white,
             ),
-            label: 'sss',
+            label: 'ライブラリ',
           ),
         ],
         onTap: (int index) {
@@ -87,8 +93,6 @@ class _RootPageState extends State<RootPage> {
             },
           );
         },
-        currentIndex: _navIndex,
-        type: BottomNavigationBarType.fixed,
       ),
       body: _navWidget.elementAt(_navIndex),
     );
