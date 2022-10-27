@@ -8,28 +8,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.red),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          // 左側のアイコン
-          leading: Icon(Icons.arrow_back),
-          // タイトルテキスト
-          title: Text('Hello'),
-          // 右側のアイコン一覧
-          actions: <Widget>[
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.favorite),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.more_vert),
-            ),
-          ],
-        ),
-        body: ShortPage(),
-      ),
+      home: ShortPage(),
     );
   }
 }
