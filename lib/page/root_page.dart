@@ -23,6 +23,7 @@ class _RootPageState extends State<RootPage> {
     const RegisteredChannelPage(),
     const LibraryPage(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
