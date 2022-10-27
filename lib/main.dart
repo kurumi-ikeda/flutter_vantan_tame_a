@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vantan_tame_a/register.dart';
+import 'package:flutter_vantan_tame_a/page/root_page.dart';
 
-
-
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,8 +13,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RegisterPage(),
+      home: const SafeArea(
+        child: Scaffold(
+          body: RootPage(),
+        ),
+      ),
     );
   }
 }
-
