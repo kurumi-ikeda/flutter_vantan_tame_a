@@ -103,7 +103,7 @@ class SearchButton extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        primary: Colors.grey[600],
+        backgroundColor: Colors.grey[600],
       ),
       icon: const Icon(Icons.explore),
       label: const Text('探索'),

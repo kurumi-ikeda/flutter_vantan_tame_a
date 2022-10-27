@@ -18,6 +18,8 @@ class _RootPageState extends State<RootPage> {
   final _navWidget = [
     const HomePage(),
     const ShortPage(),
+    //_navWidgetのindexをずらすための空の [Container] 真ん中には [showUploadBottomSheet] が描画されるようにしてるため
+    Container(),
     const RegisteredChannelPage(),
     const LibraryPage(),
   ];
@@ -87,19 +89,115 @@ class _RootPageState extends State<RootPage> {
           ),
         ],
         onTap: (int index) {
-          setState(
-            () {
+          if (index == 2) {
+            showUploadBottomSheet(context);
+          } else {
+            setState(() {
               _navIndex = index;
-            },
-          );
+            });
+          }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add_circle_outline),
-        onPressed: () {},
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: _navWidget.elementAt(_navIndex),
     );
   }
+}
+
+void showUploadBottomSheet(BuildContext context) async {
+  await showModalBottomSheet<void>(
+    isScrollControlled: true,
+    backgroundColor: Colors.black,
+    context: context,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16),
+    ),
+    builder: (BuildContext context) {
+      return SizedBox(
+        height: 500,
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "作成",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    color: Colors.white,
+                    onPressed: () => {
+                      Navigator.of(context).pop(),
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(10),
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(221, 67, 66, 66),
+                    shape: BoxShape.circle,
+                  ),
+                  height: 40,
+                  width: 40,
+                  child: const Icon(
+                    Icons.upload,
+                    color: Colors.white,
+                  ),
+                ),
+                const Text(
+                  '動画をアップロード',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black, //ボタンの背景色
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(221, 67, 66, 66),
+                      shape: BoxShape.circle,
+                    ),
+                    height: 40,
+                    width: 40,
+                    child: const Icon(
+                      Icons.upload,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const Text(
+                    '動画をアップロード',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
