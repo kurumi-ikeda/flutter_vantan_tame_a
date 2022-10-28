@@ -11,17 +11,23 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CommonAppBar(),
-      body: Column(children: const [
-        FavoriteTag(),
-        SingleChildScrollView(
-            child: VideoThumbnail(
-          channelName: 'チャンネル1',
-          postTime: '10時間前',
-          title: '動画名',
-          views: '100万',
-          posterImage: 'assets/irastoya/car.jpg',
-          thumbnailImage: 'assets/irastoya/焼き芋.jpg',
-        )),
+      body: Column(children: [
+        const FavoriteTag(),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 100,
+            itemBuilder: (context, index) {
+              return const VideoThumbnail(
+                channelName: 'チャンネル1',
+                postTime: '10時間前',
+                title: '動画名',
+                views: '100万',
+                posterImage: 'assets/irastoya/car.jpg',
+                thumbnailImage: 'assets/irastoya/焼き芋.jpg',
+              );
+            },
+          ),
+        ),
       ]),
     );
   }
