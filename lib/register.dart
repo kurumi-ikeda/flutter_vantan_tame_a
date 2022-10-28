@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vantan_tame_a/component/common_app_bar.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-class RegisteredChannelPage extends StatelessWidget {
-  const RegisteredChannelPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CommonAppBar(),
       body: ListView(
         children: <Widget>[
           Stack(
