@@ -43,7 +43,10 @@ class ShortListView extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             scrollDirection: Axis.horizontal,
             children: const <Widget>[
-              ShortThumbnail(),
+              ShortThumbnail(
+                thumbnailImage: "assets/irastoya/カップケーキのイラスト.jpg",
+              ),
+              
             ],
           ),
         )
