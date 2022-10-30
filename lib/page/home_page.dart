@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
       ),
       const ShortListView(),
     ];
+
     return Scaffold(
       appBar: const CommonAppBar(),
       body: Column(children: [

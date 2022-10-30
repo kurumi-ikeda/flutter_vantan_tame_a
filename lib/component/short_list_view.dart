@@ -9,18 +9,19 @@ class ShortListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    const blackColor = Color.fromARGB(255, 15, 15, 15);
     //外側の枠
     return Container(
       height: 300,
       width: screenSize.width,
-      color: Colors.grey,
+      color: blackColor,
       child: Column(children: [
         Container(
           margin: const EdgeInsets.all(10),
           child: Container(
             height: 30,
             width: screenSize.width,
-            color: Colors.black,
+            color: blackColor,
             child: Row(
               children: [
                 Image.asset('assets/youtube-shorts-logo.png'),
@@ -35,7 +36,7 @@ class ShortListView extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
-                )
+                ),
               ],
             ),
           ),
