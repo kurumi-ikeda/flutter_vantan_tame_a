@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_vantan_tame_a/component/short_thumbnail.dart';
 
@@ -40,13 +42,20 @@ class ShortListView extends StatelessWidget {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: 10,
+            itemCount: 15,
             padding: const EdgeInsets.all(8),
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext _, int index) {
+              final List<String> imageLink = [
+                "assets/irastoya/car.jpg",
+                "assets/irastoya/カップケーキのイラスト.jpg",
+                "assets/irastoya/やかんがストーブの上に置かれたイラスト.jpg",
+                "assets/irastoya/焼き芋.jpg",
+              ];
+
               return ShortThumbnail(
                 title: 'ショート動画$index',
-                thumbnailImage: "assets/irastoya/カップケーキのイラスト.jpg",
+                thumbnailImage: imageLink[Random().nextInt(imageLink.length)],
                 views: '500万',
               );
             },
