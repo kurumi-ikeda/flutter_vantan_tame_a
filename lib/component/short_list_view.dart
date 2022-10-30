@@ -14,7 +14,7 @@ class ShortListView extends StatelessWidget {
       color: Colors.grey,
       child: Column(children: [
         Container(
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           child: Container(
             height: 30,
             width: screenSize.width,
@@ -39,15 +39,17 @@ class ShortListView extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: ListView(
+          child: ListView.builder(
+            itemCount: 10,
             padding: const EdgeInsets.all(8),
             scrollDirection: Axis.horizontal,
-            children: const <Widget>[
-              ShortThumbnail(
+            itemBuilder: (BuildContext _, int index) {
+              return ShortThumbnail(
+                title: 'ショート動画$index',
                 thumbnailImage: "assets/irastoya/カップケーキのイラスト.jpg",
-              ),
-              
-            ],
+                views: '500万',
+              );
+            },
           ),
         )
       ]),
