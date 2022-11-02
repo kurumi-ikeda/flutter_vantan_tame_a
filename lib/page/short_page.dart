@@ -8,6 +8,9 @@ class ShortPage extends StatefulWidget {
 }
 
 class _ShortPageState extends State<ShortPage> {
+  bool iseSelectedGoodButton = false;
+  bool isSelectedDownButton = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,12 +123,26 @@ class _ShortPageState extends State<ShortPage> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print("おした");
+                    setState(() {
+                      if (iseSelectedGoodButton == false) {
+                        iseSelectedGoodButton = true;
+                        isSelectedDownButton = false;
+                      } else {
+                        iseSelectedGoodButton = false;
+                      }
+
+                      //iseSelectedGoodButton = !iseSelectedGoodButton;
+                      print(iseSelectedGoodButton);
+                    });
+                  },
                   child: Column(
                     children: [
                       Icon(
                         Icons.thumb_up,
-                        color: Colors.white,
+                        color:
+                            iseSelectedGoodButton ? Colors.red : Colors.white,
                       ),
                       Text(
                         '8.2万',
@@ -135,12 +152,23 @@ class _ShortPageState extends State<ShortPage> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      if (isSelectedDownButton == false) {
+                        isSelectedDownButton = true;
+                        iseSelectedGoodButton = false;
+                      } else {
+                        isSelectedDownButton = false;
+                      }
+
+                      isSelectedDownButton = !isSelectedDownButton;
+                    });
+                  },
                   child: Column(
                     children: [
                       Icon(
                         Icons.thumb_down,
-                        color: Colors.white,
+                        color: isSelectedDownButton ? Colors.red : Colors.white,
                       ),
                       Text(
                         '低く評価',
