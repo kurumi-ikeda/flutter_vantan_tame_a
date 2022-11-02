@@ -56,7 +56,7 @@ class _RootPageState extends State<RootPage> {
               width: 24,
               height: 22,
               child: Image.asset(
-                'assets/youtube-shorts-logo.png',
+                'assets/black_youtube-shorts-logo.png',
                 fit: BoxFit.fitHeight,
                 color: Colors.white,
                 // colorBlendMode: BlendMode.lighten,

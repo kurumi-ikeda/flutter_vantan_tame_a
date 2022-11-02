@@ -48,6 +48,7 @@ class VideoThumbnail extends StatelessWidget {
               ),
             ),
           ),
+
           //下のテキスト
           Container(
             height: 75,
