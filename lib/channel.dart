@@ -41,6 +41,8 @@ List watch1 = [
   randomIntWithRange(300, 5000),
 ];
 
+int register = randomIntWithRange(900, 9999);
+
 class _ChannelPageState extends State<ChannelPage> {
   @override
   Widget build(BuildContext context) {
@@ -126,8 +128,7 @@ class _ChannelPageState extends State<ChannelPage> {
                                       padding: EdgeInsets.all(2),
                                       child: Text(
                                         ' チャンネル登録者' +
-                                            (randomIntWithRange(900, 9999))
-                                                .toString() +
+                                            (register).toString() +
                                             '人・19本の動画',
                                         style: TextStyle(
                                           fontSize: 15,
