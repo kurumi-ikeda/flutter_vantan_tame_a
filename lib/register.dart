@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_vantan_tame_a/channel.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -33,10 +34,18 @@ class _RegisterPageState extends State<RegisterPage> {
                               children: [
                                 Column(
                                   children: [
-                                    Icon(
-                                      Icons.face,
+                                    IconButton(
+                                      icon: Icon(Icons.face),
                                       color: Colors.white,
-                                      size: 80,
+                                      iconSize: 60,
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => ChannelPage(),
+                                          ),
+                                        );
+                                      },
                                     ),
                                     Text(
                                       '投稿者 $index',
@@ -101,28 +110,36 @@ class _RegisterPageState extends State<RegisterPage> {
               child: ListView.builder(
                   shrinkWrap: true,
                   physics: ScrollPhysics(),
-                  itemCount: 41,
+                  itemCount: 19,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       alignment: Alignment.bottomCenter,
                       height: 300,
-                      color: Colors.grey,
+                      color: Colors.blue[index * 50],
                       child: Container(
                         height: 70,
                         width: double.infinity,
                         color: Colors.black,
                         child: Row(
                           children: [
-                            Icon(
-                              Icons.face,
+                            IconButton(
+                              icon: Icon(Icons.face),
                               color: Colors.white,
-                              size: 60,
+                              iconSize: 60,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ChannelPage(),
+                                  ),
+                                );
+                              },
                             ),
                             Flexible(
                               child: Column(
                                 children: [
                                   Text(
-                                    ''' list item tem tem tem$index list item tem tem tem$index!''',
+                                    ''' 動画$index''',
                                     style: TextStyle(
                                       fontSize: 20,
                                       color: Colors.white,
@@ -148,45 +165,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     );
                   }))
-          // Container(
-          //   alignment: Alignment.bottomCenter,
-          //   height: 280,
-          //   color: Colors.grey,
-          //   child: Container(
-          //     height: 70,
-          //     width: double.infinity,
-          //     color: Colors.black,
-          //     child: Row(
-          //       children: [
-          //         Icon(
-          //           Icons.face,
-          //           color: Colors.white,
-          //           size: 60,
-          //         ),
-          //         Flexible(
-          //           child: Column(
-          //             children: [
-          //               Text(
-          //                 ''' list item tem tem tem1 list item tem tem tem1!''',
-          //                 style: TextStyle(
-          //                   fontSize: 20,
-          //                   color: Colors.white,
-          //                 ),
-          //               ),
-          //               Text(
-          //                 'list item 1',
-          //                 style: TextStyle(
-          //                   fontSize: 15,
-          //                   color: Colors.grey,
-          //                 ),
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
