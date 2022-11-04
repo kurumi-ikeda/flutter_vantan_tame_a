@@ -533,8 +533,26 @@ class _ChannelPageState extends State<ChannelPage> {
                 ),
               ),
             ),
-            Center(
-              child: Text('コミュニティ', style: TextStyle(fontSize: 32.0)),
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              color: Colors.black,
+              alignment: Alignment.topCenter,
+              child: Column(
+                children: [
+                  Container(
+                    color: Colors.black,
+                    height: 10,
+                  ),
+                  Text(
+                    'このチャンネルにはまだ投稿がありません',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
             ),
             Center(
               child: Text('チャンネル', style: TextStyle(fontSize: 32.0)),

@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_vantan_tame_a/channel.dart';
+import 'package:flutter_vantan_tame_a/page/channel.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
