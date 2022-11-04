@@ -208,7 +208,9 @@ class _ShortPageState extends State<ShortPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showUploadBottomSheet(context);
+                        },
                         child: Column(
                           children: [
                             Icon(
@@ -258,4 +260,115 @@ class _ShortPageState extends State<ShortPage> {
       ),
     );
   }
+}
+
+void showUploadBottomSheet(BuildContext context) async {
+  await showModalBottomSheet<void>(
+    isScrollControlled: true,
+    backgroundColor: Colors.black,
+    context: context,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16),
+    ),
+    builder: (BuildContext context) {
+      return SizedBox(
+        height: 500,
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const Text(
+                        "コメント",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        '787',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                        ),
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    color: Colors.white,
+                    onPressed: () => {
+                      Navigator.of(context).pop(),
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10, right: 20, bottom: 100, left: 30),
+                    child: Icon(
+                      Icons.account_circle,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Column(
+                  children: [
+                    const Text(
+                      '動画をアップロード',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black, //ボタンの背景色
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(221, 67, 66, 66),
+                      shape: BoxShape.circle,
+                    ),
+                    height: 40,
+                    width: 40,
+                    child: const Icon(
+                      Icons.upload,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const Text(
+                    '動画をアップロード',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
