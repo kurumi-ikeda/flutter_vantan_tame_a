@@ -17,6 +17,30 @@ int randomIntWithRange(int min, int max) {
   return value + min;
 }
 
+int watchcount = randomIntWithRange(20, 60);
+
+List watch1 = [
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+  randomIntWithRange(300, 5000),
+];
+
 class _ChannelPageState extends State<ChannelPage> {
   @override
   Widget build(BuildContext context) {
@@ -41,8 +65,254 @@ class _ChannelPageState extends State<ChannelPage> {
         ),
         body: TabBarView(
           children: <Widget>[
-            Center(
-              child: Text('ホーム', style: TextStyle(fontSize: 32.0)),
+            SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  children: [
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: ScrollPhysics(),
+                      itemCount: 1,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          color: Colors.black,
+                          width: double.infinity,
+                          child: Column(
+                            children: [
+                              Container(
+                                color: Colors.yellow,
+                                height: 100,
+                              ),
+                              Container(
+                                  child: Icon(
+                                Icons.face,
+                                color: Colors.white,
+                                size: 80,
+                              )),
+                              Container(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(2),
+                                      child: Text(
+                                        ''' 投稿者n''',
+                                        style: TextStyle(
+                                          fontSize: 30,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.all(2),
+                                      width: 125,
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            ''' 登録済み''',
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.notifications_on,
+                                            color: Colors.grey,
+                                            size: 35,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.all(2),
+                                      child: Text(
+                                        ' チャンネル登録者' +
+                                            (randomIntWithRange(900, 9999))
+                                                .toString() +
+                                            '人・19本の動画',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 200,
+                                      padding: EdgeInsets.all(2),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            '動画投稿者nです。',
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_ios,
+                                            color: Colors.grey,
+                                            size: 20,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      alignment: Alignment.bottomCenter,
+                                      height: 300,
+                                      color: Colors.indigo,
+                                      child: Container(
+                                        height: 70,
+                                        width: double.infinity,
+                                        color: Colors.black,
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Icons.face,
+                                              color: Colors.white,
+                                              size: 60,
+                                            ),
+                                            Flexible(
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    alignment: Alignment
+                                                        .centerLeft, //任意のプロパティ
+                                                    width: double.infinity,
+                                                    child: Text(
+                                                      ''' トップ動画''',
+                                                      style: TextStyle(
+                                                        fontSize: 20,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    alignment: Alignment
+                                                        .centerLeft, //任意のプロパティ
+                                                    width: double.infinity,
+                                                    child: Text(
+                                                      '投稿者n・' +
+                                                          (watchcount)
+                                                              .toString() +
+                                                          '万回再生・3ヶ月前',
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: Colors.grey,
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            color: Colors.black,
+                                            width: 15,
+                                          ),
+                                          Text(
+                                            'アップロード動画',
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: ScrollPhysics(),
+                      itemCount: 4,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          color: Colors.black,
+                          width: double.infinity,
+                          child: Column(
+                            children: [
+                              Container(
+                                alignment: Alignment.bottomCenter,
+                                height: 120,
+                                color: Colors.black,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 15,
+                                      color: Colors.black,
+                                    ),
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          width: 170,
+                                          height: 100,
+                                          color: Colors.white.withOpacity(0.3),
+                                        ),
+                                        Container(
+                                          width: 170,
+                                          height: 100,
+                                          color: Colors.green[index * 50],
+                                          child: Icon(
+                                            Icons.face_outlined,
+                                            color: Colors.white,
+                                            size: 60,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Flexible(
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            alignment: Alignment.centerLeft,
+                                            width: double.infinity,
+                                            child: Text(
+                                              ''' 動画$index''',
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            alignment: Alignment.centerLeft,
+                                            width: double.infinity,
+                                            child: Text(
+                                              (watch1[index]).toString() +
+                                                  ' 回視聴 ・ $index日前',
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
             ),
             SingleChildScrollView(
               child: Center(
@@ -100,7 +370,8 @@ class _ChannelPageState extends State<ChannelPage> {
                                         alignment: Alignment.centerLeft,
                                         width: double.infinity,
                                         child: Text(
-                                          '投稿者 $index , $index分前',
+                                          (watch1[index]).toString() +
+                                              ' 回視聴 ・ $index日前',
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             fontSize: 15,
@@ -114,7 +385,54 @@ class _ChannelPageState extends State<ChannelPage> {
                               ],
                             ),
                           );
-                        })
+                        }),
+                    Container(
+                      alignment: Alignment.bottomCenter,
+                      height: 120,
+                      color: Colors.black,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 15,
+                            color: Colors.black,
+                          ),
+                          Container(
+                            width: 170,
+                            height: 100,
+                            color: Colors.indigo,
+                          ),
+                          Flexible(
+                            child: Column(
+                              children: [
+                                Container(
+                                  alignment: Alignment.centerLeft,
+                                  width: double.infinity,
+                                  child: Text(
+                                    ''' トップ動画''',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.centerLeft,
+                                  width: double.infinity,
+                                  child: Text(
+                                    (watchcount).toString() + ' 万回視聴 ・ 3ヶ月前',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -141,7 +459,7 @@ class _ChannelPageState extends State<ChannelPage> {
                                 Container(
                                   width: 170,
                                   height: 100,
-                                  color: Colors.white,
+                                  color: Colors.purple[index * 50],
                                   alignment: Alignment.centerRight,
                                   child: Container(
                                     width: 60,

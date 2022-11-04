@@ -138,11 +138,15 @@ class _RegisterPageState extends State<RegisterPage> {
                             Flexible(
                               child: Column(
                                 children: [
-                                  Text(
-                                    ''' 動画$index''',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.white,
+                                  Container(
+                                    alignment: Alignment.centerLeft, //任意のプロパティ
+                                    width: double.infinity,
+                                    child: Text(
+                                      ''' 動画$index''',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                   Container(
